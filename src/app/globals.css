@@ -6,3 +6,14 @@
 .wspre {
     white-space: pre;
 }
+/* globals.css */
+
+/* Mode Terang */
+@media (prefers-color-scheme: light) {
+    body {
+      /* Gaya untuk tema terang */
+      background-color: #FDFDFD; /* Warna latar belakang tema terang */
+      color: #1E1E1E; /* Warna teks untuk tema terang */
+    }
+  }
+  
