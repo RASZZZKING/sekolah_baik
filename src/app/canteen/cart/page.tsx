@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import {
   ShoppingCart,
   Trash,
@@ -13,20 +13,29 @@ import { FunctionComponent } from "react";
 interface pageProps {}
 
 const page: FunctionComponent<pageProps> = () => {
-  const router = useRouter(
-  )
+  const router = useRouter();
   const handleRoute = () => {
-      router.back()
-  }
+    router.back();
+  };
   const handleCart = () => {
-    router.push("/canteen/product/populer")
-  }
+    router.push("/canteen/product/populer");
+  };
   return (
     <div className=" bg-base-100 pt-6 pb-36">
       <div className="flex justify-between px-6 items-center">
-        <CaretLeft onClick={handleRoute} size={24} weight="bold" className="cursor-pointer" />
+        <CaretLeft
+          onClick={handleRoute}
+          size={24}
+          weight="bold"
+          className="cursor-pointer"
+        />
         <p className="text-xl font-bold capitalize">Shopping Cart</p>
-        <Plus onClick={handleCart} size={24} weight="bold" className="cursor-pointer" />
+        <Plus
+          onClick={handleCart}
+          size={24}
+          weight="bold"
+          className="cursor-pointer"
+        />
       </div>
 
       <div className="flex flex-col px-6 gap-4 mt-8">
@@ -105,11 +114,17 @@ const page: FunctionComponent<pageProps> = () => {
             <p className="opacity-60 text-xs">SUBTOTAL</p>
             <p className="text-xl text-primary font-semibold">15K</p>
           </div>
-          <div className="flex gap-3  font-semibold items-center">
-            <p className="text-xs opacity-90 text-end">
-              Selamat, Kamu dapat Voucer setelah beli!!!
-            </p>
-            <Tag size={40} className=" rotate-90 text-primary" weight="bold" />
+          <div className="flex justify-end">
+            <div className="flex gap-3  font-semibold items-center">
+              <p className="text-xs opacity-90 text-end">
+                Selamat, Kamu dapat Voucer setelah beli!!!
+              </p>
+              <Tag
+                size={40}
+                className=" rotate-90 text-primary"
+                weight="bold"
+              />
+            </div>
           </div>
         </div>
         <div className="btn flex-1 text-center btn-primary">
