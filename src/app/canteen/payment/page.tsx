@@ -1,3 +1,4 @@
+"use client"
 import {
   Calendar,
   CaretLeft,
@@ -8,15 +9,23 @@ import {
   TagSimple,
   User,
 } from "@phosphor-icons/react/dist/ssr";
+import { useRouter } from "next/navigation";
 import { FunctionComponent } from "react";
 
 interface pageProps {}
 
 const page: FunctionComponent<pageProps> = () => {
+  const router = useRouter()
+  const handleBack = () => {
+    router.back()
+  }
+  const handlePay = () => {
+    router.push("/canteen/payment/success")
+  }
   return (
     <div className="bg-slate-100 pb-24">
       <div className="bg-base-100 flex justify-between px-6 py-5 items-center rounded-b-xl shadow-inner">
-        <CaretLeft size={24} weight="bold" className="cursor-pointer" />
+        <CaretLeft onClick={handleBack} size={24} weight="bold" className="cursor-pointer" />
         <p className="text-xl font-bold capitalize">Payment Details</p>
         <CaretLeft
           size={24}
@@ -78,7 +87,7 @@ const page: FunctionComponent<pageProps> = () => {
             <div className="flex items-center rounded-lg gap-4 py-2 px-4 bg-base-100 border-slate-300 border">
               <div className="bg-slate-400 border-slate-300 border w-12 h-8 rounded-md"></div>
               <div className="text-md font-semibold flex-1">Yadtren</div>
-              <div className="text-primary text-sm">Change</div>
+              <div className="text-primary text-sm cursor-pointer">Change</div>
             </div>
           </div>
         </div>
@@ -172,7 +181,7 @@ const page: FunctionComponent<pageProps> = () => {
             <p className="text-xs ">You will Get 1250 Points</p>
           </div>
         </div>
-        <div className="btn flex-1 text-center btn-primary">
+        <div onClick={handlePay} className="btn flex-1 text-center btn-primary">
           Pay Now
           {/* <Coins size={20} />  */}
         </div>

@@ -1,3 +1,4 @@
+"use client"
 import SearchInputLesson from "@/components/lessonToday/SearhInputLesson";
 import { dataMapel } from "@/models/data/frontEnd/dataMapel";
 import {
@@ -6,17 +7,26 @@ import {
   ShoppingCart,
   Star,
 } from "@phosphor-icons/react/dist/ssr";
+import { useRouter } from "next/navigation";
 import { FunctionComponent } from "react";
 
 interface pageProps {}
 
 const page: FunctionComponent<pageProps> = () => {
+  const router = useRouter(
+  )
+  const handleRoute = () => {
+      router.back()
+  }
+  const handleCart = () => {
+    router.push("/canteen/cart")
+  }
   return (
     <div className="min-h-svh bg-base-100 pt-6">
       <div className="flex justify-between px-6 items-center">
-        <CaretLeft size={24} weight="bold" className="cursor-pointer" />
+        <CaretLeft onClick={handleRoute} size={24} weight="bold" className="cursor-pointer" />
         <p className="text-xl font-bold capitalize">Favorite</p>
-        <ShoppingCart size={24} weight="bold" className="cursor-pointer" />
+        <ShoppingCart onClick={handleCart} size={24} weight="bold" className="cursor-pointer" />
       </div>
       <div className="mt-7">
         <SearchInputLesson />

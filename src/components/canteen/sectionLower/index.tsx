@@ -1,6 +1,7 @@
 import SearchInputLesson from "@/components/lessonToday/SearhInputLesson";
 import { dataMapel } from "@/models/data/frontEnd/dataMapel";
 import { CaretRight, MapPin, Star } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
 import { FunctionComponent } from "react";
 
 interface SectionLowCanteenProps {}
@@ -9,10 +10,10 @@ const SectionLowCanteen: FunctionComponent<SectionLowCanteenProps> = () => {
   const Fory = () => (
     <div className="flex justify-between items-center">
       <div className="text-lg font-semibold">For you</div>
-      <div className="text-xs text-primary flex gap-1 items-center">
+      <Link href={"/canteen/product/populer"} className="text-xs text-primary flex gap-1 items-center">
         <p>See more</p>
         <CaretRight size={12} weight="bold" />{" "}
-      </div>
+      </Link>
     </div>
   );
   return (
@@ -38,8 +39,8 @@ const SectionLowCanteen: FunctionComponent<SectionLowCanteenProps> = () => {
         </div>
         <div className="px-6">
           <div className="grid grid-cols-2 gap-4">
-            <div className="bg-base-100 shadow-lg rounded-xl">
-              <div className=" aspect-square w-full rounded-t-xl bg-slate-500">
+            <Link href={"/canteen/product"} className="bg-base-100 shadow-lg rounded-xl">
+              <div className=" aspect-square w-full rounded-t-xl skeleton rounded-b-none bg-slate-500">
                 <div className="absolute btn mt-2 ml-2 text-base-100 glass btn-xs">
                   Food
                 </div>
@@ -58,9 +59,9 @@ const SectionLowCanteen: FunctionComponent<SectionLowCanteenProps> = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="bg-base-100 shadow-lg rounded-xl">
-              <div className=" aspect-square w-full rounded-t-xl bg-slate-500">
+            </Link>
+            <Link href={"/canteen/product"} className="bg-base-100 shadow-lg rounded-xl">
+              <div className=" aspect-square w-full rounded-t-xl skeleton rounded-b-none bg-slate-500">
                 <div className="absolute btn mt-2 ml-2 text-base-100 glass btn-xs">
                   Food
                 </div>
@@ -79,9 +80,9 @@ const SectionLowCanteen: FunctionComponent<SectionLowCanteenProps> = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="bg-base-100 shadow-lg rounded-xl">
-              <div className=" aspect-square w-full rounded-t-xl bg-slate-500">
+            </Link>
+            <Link href={"/canteen/product"} className="bg-base-100 shadow-lg rounded-xl">
+              <div className=" aspect-square w-full rounded-t-xl skeleton rounded-b-none bg-slate-500">
                 <div className="absolute btn mt-2 ml-2 text-base-100 glass btn-xs">
                   Food
                 </div>
@@ -100,9 +101,9 @@ const SectionLowCanteen: FunctionComponent<SectionLowCanteenProps> = () => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="bg-base-100 shadow-lg rounded-xl">
-              <div className=" aspect-square w-full rounded-t-xl bg-slate-500">
+            </Link>
+            <Link href={"/canteen/product"} className="bg-base-100 shadow-lg rounded-xl">
+              <div className=" aspect-square w-full rounded-t-xl skeleton rounded-b-none bg-slate-500">
                 <div className="absolute btn mt-2 ml-2 text-base-100 glass btn-xs">
                   Food
                 </div>
@@ -121,7 +122,7 @@ const SectionLowCanteen: FunctionComponent<SectionLowCanteenProps> = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </div>
       </div>

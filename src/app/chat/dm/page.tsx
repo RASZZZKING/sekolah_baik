@@ -1,3 +1,4 @@
+"use client"
 import {
     CalendarDots,
   CaretLeft,
@@ -8,15 +9,21 @@ import {
   PaperPlaneRight,
   VideoCamera,
 } from "@phosphor-icons/react/dist/ssr";
+import { useRouter } from "next/navigation";
 import { FunctionComponent } from "react";
 
 interface pageProps {}
 
 const page: FunctionComponent<pageProps> = () => {
+  const router = useRouter(
+  )
+  const handleRoute = () => {
+      router.back()
+  }
   return (
     <div className="bg-slate-100 min-h-screen">
       <div className="bg-base-100 gap-4 shadow rounded-b-lg px-6 py-4 flex items-center">
-        <CaretLeft size={20} weight="bold" />
+        <CaretLeft onClick={handleRoute} size={20} weight="bold" />
         <div className="flex items-center gap-3 flex-1">
           <div className="avatar">
             <div className="w-11 rounded-full">

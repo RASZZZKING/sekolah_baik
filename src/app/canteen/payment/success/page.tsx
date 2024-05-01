@@ -1,18 +1,81 @@
-import { CaretLeft, Check, Star } from "@phosphor-icons/react/dist/ssr";
-import { FunctionComponent } from "react";
+"use client";
+import {
+  CaretLeft,
+  Check,
+  ForkKnife,
+  Star,
+} from "@phosphor-icons/react/dist/ssr";
+import { useRouter } from "next/navigation";
+import { FunctionComponent, useEffect, useState } from "react";
 
 interface pageProps {}
 
 const page: FunctionComponent<pageProps> = () => {
+  const router = useRouter();
+  const handleBack = () => {
+    router.back();
+  };
+  const handleCanteen = () => {
+    router.push("/canteen");
+  };
+  const targetTime = new Date();
+  targetTime.setHours(targetTime.getHours() + 2);
+  targetTime.setMinutes(targetTime.getMinutes() + 21);
+  targetTime.setSeconds(targetTime.getSeconds() + 11);
+
+  const [remainingTime, setRemainingTime] = useState<number>(
+    targetTime.getTime() - Date.now()
+  );
+  const [timeState, setTimeState] = useState({
+    hours: 0,
+    minutes: 0,
+    seconds: 0,
+  });
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const now = Date.now();
+      const diff = targetTime.getTime() - now;
+      if (diff <= 0) {
+        clearInterval(intervalId);
+        setRemainingTime(0);
+      } else {
+        setRemainingTime(diff);
+      }
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+  useEffect(() => {
+    const hours = Math.floor(remainingTime / (1000 * 60 * 60));
+    const minutes = Math.floor(
+      (remainingTime % (1000 * 60 * 60)) / (1000 * 60)
+    );
+    const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+    setTimeState({
+      hours,
+      minutes,
+      seconds,
+    });
+  }, [remainingTime]);
+
   return (
     <div className="bg-slate-100 min-h-svh">
       <div className="bg-base-100 flex justify-between px-6 py-5 items-center rounded-b-xl shadow-inner">
-        <CaretLeft size={24} weight="bold" className="cursor-pointer" />
-        <p className="text-xl font-bold capitalize">Payment Details</p>
         <CaretLeft
+          onClick={handleBack}
           size={24}
           weight="bold"
-          className="cursor-pointer opacity-0"
+          className="cursor-pointer"
+        />
+        <p className="text-xl font-bold capitalize">Payment Details</p>
+        <ForkKnife
+          onClick={handleCanteen}
+          size={24}
+          weight="bold"
+          className="cursor-pointer"
         />
       </div>
 
@@ -67,13 +130,12 @@ const page: FunctionComponent<pageProps> = () => {
             <span className="text-sm line-through opacity-60">10K</span> 8K
           </p>
         </div>
-        <div className="mt-4 btn btn-block btn-disabled font-mono btn-primary items-center">
+        <div className="mt-4 btn btn-block font-mono btn-primary items-center">
           Your Product Ready in{" "}
           <span className="countdown items-center ">
-            <span>2</span>:<span>04</span>:<span>10</span>
-            {/* <span style={{ "--value": 24 }}></span>: */}
-            {/* <span style={{ "--value": 52 }}></span> */}
-            {/* <span style={{ "--value": 52 }}></span> */}
+            <span style={{ "--value": timeState.hours } as object}></span>h:
+            <span style={{ "--value": timeState.minutes } as object}></span>m:
+            <span style={{ "--value": timeState.seconds } as object}></span>s
           </span>
         </div>
       </div>

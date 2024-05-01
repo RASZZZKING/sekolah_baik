@@ -1,21 +1,32 @@
+"use client"
 import {
   ShoppingCart,
   Trash,
   CaretLeft,
   Coins,
   Tag,
+  Plus,
 } from "@phosphor-icons/react/dist/ssr";
+import { useRouter } from "next/navigation";
 import { FunctionComponent } from "react";
 
 interface pageProps {}
 
 const page: FunctionComponent<pageProps> = () => {
+  const router = useRouter(
+  )
+  const handleRoute = () => {
+      router.back()
+  }
+  const handleCart = () => {
+    router.push("/canteen/product/populer")
+  }
   return (
     <div className=" bg-base-100 pt-6 pb-36">
       <div className="flex justify-between px-6 items-center">
-        <CaretLeft size={24} weight="bold" className="cursor-pointer" />
+        <CaretLeft onClick={handleRoute} size={24} weight="bold" className="cursor-pointer" />
         <p className="text-xl font-bold capitalize">Shopping Cart</p>
-        <ShoppingCart size={24} weight="bold" className="cursor-pointer" />
+        <Plus onClick={handleCart} size={24} weight="bold" className="cursor-pointer" />
       </div>
 
       <div className="flex flex-col px-6 gap-4 mt-8">

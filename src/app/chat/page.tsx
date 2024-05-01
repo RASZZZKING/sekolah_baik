@@ -1,15 +1,27 @@
+"use client"
 import SearchInput from "@/components/dashboard/SearchInput";
+import { CaretLeft, ShoppingCart } from "@phosphor-icons/react/dist/ssr";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { FunctionComponent } from "react";
 
 interface pageProps {}
 
 const page: FunctionComponent<pageProps> = () => {
+  const router = useRouter(
+  )
+  const handleRoute = () => {
+      router.back()
+  }
+  const handleCart = () => {
+    router.push("/canteen/cart")
+  }
   return (
     <div className="min-h-svh bg-base-100">
-      <div className="flex justify-center p-6 items-center">
-        {/* <CaretLeft size={24} weight="bold" className="cursor-pointer" /> */}
+      <div className="flex justify-between p-6 items-center">
+        <CaretLeft onClick={handleRoute} size={24} weight="bold" className="cursor-pointer" />
         <p className="text-xl font-bold capitalize">Message</p>
-        {/* <ShoppingCart size={24} weight="bold" className="cursor-pointer" /> */}
+        <ShoppingCart onClick={handleCart} size={24} weight="bold" className="cursor-pointer" />
       </div>
 
       <div className="mb-6 shadow rounded-2xl mx-6">
@@ -57,39 +69,41 @@ const page: FunctionComponent<pageProps> = () => {
               <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
             </div>
           </div>
-          <div className="flex justify-between h-10 flex-col flex-1 max-w-full truncate">
+
+          <Link href={"/chat/dm"} className="flex justify-between h-10 flex-col flex-1 max-w-full truncate">
             <p className="text-md font-semibold">Job.In Team</p>
             <p className="text-xs truncate font-semibold">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed,
               provident?
             </p>
-          </div>
-          <div className="flex justify-between flex-col items-center h-10">
+          </Link>
+          <Link href={"/chat/dm"} className="flex justify-between flex-col items-center h-10">
             <p className="text-xs opacity-60">2h ago</p>
             <div className="w-4 h-4 bg-success rounded-full text-[8px] text-base-100 font-bold flex items-center justify-center">
               3
             </div>
-          </div>
+          </Link>
         </div>
+
         <div className="flex pb-3 border-b border-slate-400 gap-3 items-center">
           <div className="avatar">
             <div className="w-12 rounded-full">
               <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
             </div>
           </div>
-          <div className="flex justify-between h-10 flex-col flex-1 max-w-full truncate">
+          <Link href={"/chat/dm"} className="flex justify-between h-10 flex-col flex-1 max-w-full truncate">
             <p className="text-md font-semibold">Job.In Team</p>
             <p className="text-xs truncate font-semibold">
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sed,
               provident?
             </p>
-          </div>
-          <div className="flex justify-between flex-col items-center h-10">
+          </Link>
+          <Link href={"/chat/dm"} className="flex justify-between flex-col items-center h-10">
             <p className="text-xs opacity-60">2h ago</p>
             <div className="w-4 h-4 bg-success rounded-full text-[8px] text-base-100 font-bold flex items-center justify-center">
               3
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </div>
