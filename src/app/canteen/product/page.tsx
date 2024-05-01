@@ -19,8 +19,14 @@ import { FunctionComponent, useRef, useState } from "react";
 interface pageProps {}
 
 const page: FunctionComponent<pageProps> = () => {
-  const [quantity, setQuantity] = useState<number>(1)
-  const buyRef = useRef<HTMLDivElement>(null)
+  const [quantity, setQuantity] = useState<number>(1);
+  const handlePlus = () => {
+    setQuantity(quantity + 1);
+  };
+  const handleMinus = () => {
+    quantity !== 1 && setQuantity(quantity - 1);
+  };
+  const buyRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const handleRoute = () => {
     router.back();
@@ -35,30 +41,24 @@ const page: FunctionComponent<pageProps> = () => {
     router.push("/chat/dm");
   };
   const handleBuy = () => {
-    if (buyRef.current !== null){
-      buyRef.current.style.display = "flex"
+    if (buyRef.current !== null) {
+      buyRef.current.style.display = "flex";
     }
-  }
+  };
   const handleClose = () => {
-    if (buyRef.current !== null){
-      buyRef.current.style.display = "none"
+    if (buyRef.current !== null) {
+      buyRef.current.style.display = "none";
     }
-  }
+  };
   const handlePay = () => {
     router.push("/canteen/payment");
-    }
+  };
   const handlePayCart = () => {
-    handleClose()
-    alert("Berhasil masuk ke keranjang")
-    }
-    const handlePlus = () => {
-      setQuantity(quantity + 1)
-    }
-    const handleMinus = () => {
-      quantity !== 1 && setQuantity(quantity - 1)
-    }
-
+    handleClose();
+    alert("Berhasil masuk ke keranjang");
+  };
   
+
   const condition = ["/", "s"];
   return (
     <div className="bg-base-100 pt-4 pb-24">
@@ -256,10 +256,16 @@ const page: FunctionComponent<pageProps> = () => {
         </div>
 
         {/* pop up belanjaan */}
-        <div ref={buyRef} className="fixed top-0 left-0 w-screen h-screen hidden  justify-center items-center">
+        <div
+          ref={buyRef}
+          className="fixed top-0 left-0 w-screen h-screen hidden  justify-center items-center"
+        >
           <div className="absolute w-72 flex justify-end -mt-[12rem]">
-            <div onClick={handleClose} className="h-6 pt-1 w-16 flex justify-center rounded-t-md bg-slate-400">
-              <X  weight="bold" />
+            <div
+              onClick={handleClose}
+              className="h-6 pt-1 w-16 flex justify-center rounded-t-md bg-slate-400"
+            >
+              <X weight="bold" />
             </div>
           </div>
           <div className="w-72 py-4 z-[1] rounded-tr-none rounded-xl flex flex-col gap-3 bg-slate-50">
@@ -303,13 +309,19 @@ const page: FunctionComponent<pageProps> = () => {
             </div>
             <div className="flex px-4 justify-between items-center">
               <div className="join">
-                <button onClick={handleMinus} className="join-item btn-xs btn text-slate-500 ">
+                <button
+                  onClick={handleMinus}
+                  className="join-item btn-xs btn text-slate-500 "
+                >
                   -
                 </button>
                 <button className="join-item btn btn-xs text-slate-500 ">
                   {quantity}
                 </button>
-                <button onClick={handlePlus} className="join-item btn-xs btn text-slate-500 ">
+                <button
+                  onClick={handlePlus}
+                  className="join-item btn-xs btn text-slate-500 "
+                >
                   +
                 </button>
               </div>
@@ -317,7 +329,9 @@ const page: FunctionComponent<pageProps> = () => {
                 <div onClick={handlePayCart} className="btn-xs mr-1 btn">
                   <ShoppingCart size={17} className="text-slate-500" />
                 </div>
-                <div onClick={handlePay} className="btn-xs btn-primary btn">Pay Now</div>
+                <div onClick={handlePay} className="btn-xs btn-primary btn">
+                  Pay Now
+                </div>
               </div>
             </div>
           </div>
