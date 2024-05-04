@@ -3,7 +3,7 @@ import MapelCard from "@/components/lessonToday/MapelCard";
 import SearchInputLesson from "@/components/lessonToday/SearhInputLesson";
 import HeadChevron from "@/components/utils/HeadChevron";
 import HelpSection from "@/components/utils/HelpSection";
-import { dataMateri } from "@/models/data/frontEnd/dataMateri";
+import { dataMateri } from "@/models/data/FE/dataMateri";
 import { FunctionComponent } from "react";
 
 interface pageProps {
@@ -12,12 +12,10 @@ interface pageProps {
   };
 }
 
-
-
 const page: FunctionComponent<pageProps> = ({ params }) => {
   let { keyword } = params;
   keyword = decodeURI(keyword);
-  const data = dataMateri.data[keyword]
+  const data = dataMateri.data[keyword];
   return (
     <div className="bg-base-100 pt-8">
       <HeadChevron title={keyword} />
@@ -32,5 +30,3 @@ const page: FunctionComponent<pageProps> = ({ params }) => {
 };
 
 export default page;
-
-

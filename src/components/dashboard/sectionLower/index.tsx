@@ -1,6 +1,6 @@
 import HeaderDash from "@/components/utils/HeaderDash";
 import HelpSection from "@/components/utils/HelpSection";
-import { dataMapel } from "@/models/data/frontEnd/dataMapel";
+import { dataMapel } from "@/models/data/FE/dataMapel";
 import { CaretRight, Star } from "@phosphor-icons/react/dist/ssr";
 import Link from "next/link";
 import { FunctionComponent } from "react";
@@ -17,7 +17,8 @@ const SectionLow: FunctionComponent<SectionLowProps> = () => {
       />
       <div className="overflow-auto whitespace-nowrap flex max-w-full gap-4 pb-10">
         {dataMapel.slice(3, 7).map((cb, index) => (
-          <Link href={"/lesson/quiz"}
+          <Link
+            href={"/lesson/quiz"}
             className={`${index === 0 && "ms-6"} ${
               index === 3 && "me-3"
             } min-w-72 rounded-2xl bg-base-100 shadow-xl`}
@@ -54,9 +55,7 @@ const SectionLow: FunctionComponent<SectionLowProps> = () => {
               </p>
               {/* <p className="text-sm font-semibold text-wrap skeleton rounded-xl h-8 opacity-50"></p> */}
 
-              <p className="text-sm opacity-50">
-                {cb.name}
-              </p>
+              <p className="text-sm opacity-50">{cb.name}</p>
 
               {/* <p className="text-sm h-3 opacity-50 skeleton"></p> */}
               {/* <p className="text-sm h-3 max-w-20 opacity-50 skeleton"></p> */}
@@ -71,7 +70,8 @@ const SectionLow: FunctionComponent<SectionLowProps> = () => {
 
       <div className=" overflow-auto whitespace-nowrap flex max-w-full gap-4 pb-10">
         {dataMapel.slice(3, 7).map((cb, index) => (
-          <Link href={"/lesson/detail"}
+          <Link
+            href={"/lesson/detail"}
             className={`${index === 0 && "ms-6"} ${
               index === 3 && "me-3"
             } min-w-[10.5rem] rounded-2xl bg-base-100 shadow-xl`}

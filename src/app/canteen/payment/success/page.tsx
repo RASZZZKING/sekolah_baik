@@ -1,4 +1,5 @@
 "use client";
+import HeaderCostum from "@/components/utils/moleculs/HeaderCostum";
 import {
   CaretLeft,
   Check,
@@ -63,21 +64,14 @@ const page: FunctionComponent<pageProps> = () => {
 
   return (
     <div className="bg-slate-100 min-h-svh">
-      <div className="bg-base-100 flex justify-between px-6 py-5 items-center rounded-b-xl shadow-inner">
-        <CaretLeft
-          onClick={handleBack}
-          size={24}
-          weight="bold"
-          className="cursor-pointer"
-        />
-        <p className="text-xl font-bold capitalize">Payment Details</p>
+      <HeaderCostum title="Payment Details">
         <ForkKnife
           onClick={handleCanteen}
           size={24}
           weight="bold"
           className="cursor-pointer"
         />
-      </div>
+      </HeaderCostum>
 
       <div className="min-h-[10vh] my-16 flex-col flex items-center justify-center">
         <div className="flex justify-center items-center">
@@ -130,6 +124,7 @@ const page: FunctionComponent<pageProps> = () => {
             <span className="text-sm line-through opacity-60">10K</span> 8K
           </p>
         </div>
+        
         <div className="mt-4 btn btn-block font-mono btn-primary items-center">
           Your Product Ready in{" "}
           <span className="countdown items-center ">

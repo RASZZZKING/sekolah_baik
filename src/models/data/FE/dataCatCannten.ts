@@ -1,0 +1,120 @@
+export const dataCatCanteen: DataCanteen2 = {
+  data: [
+    {
+      name: "Alat Tulis",
+      data: [
+        {
+          name: "Pensil",
+          price: 5000,
+          stock: 50,
+          rating: 4.5,
+          reviewers: 20,
+          shop_name: "Toko Mubarok",
+        },
+        {
+          name: "Buku Tulis",
+          price: 10000,
+          stock: 30,
+          rating: 4.2,
+          reviewers: 15,
+          shop_name: "Warung Bu Ijah",
+        },
+        {
+          name: "Penghapus",
+          price: 2000,
+          stock: 20,
+          rating: 4.0,
+          reviewers: 10,
+          shop_name: "Kedai Supri",
+        },
+      ],
+    },
+    {
+      name: "Snack",
+      data: [
+        {
+          name: "Keripik Kentang",
+          price: 8000,
+          stock: 40,
+          rating: 4.7,
+          reviewers: 25,
+          shop_name: "Toko Snack Lestari",
+        },
+        {
+          name: "Kacang Almond",
+          price: 12000,
+          stock: 25,
+          rating: 4.3,
+          reviewers: 18,
+          shop_name: "Warung Makanan Ringan",
+        },
+        {
+          name: "Cokelat Batangan",
+          price: 6000,
+          stock: 35,
+          rating: 4.1,
+          reviewers: 12,
+          shop_name: "Toko Cemilan Enak",
+        },
+      ],
+    },
+    {
+      name: "Minuman",
+      data: [
+        {
+          name: "Air Mineral",
+          price: 5000,
+          stock: 60,
+          rating: 4.6,
+          reviewers: 22,
+          shop_name: "Warung Minuman Segar",
+        },
+        {
+          name: "Jus Jeruk",
+          price: 10000,
+          stock: 30,
+          rating: 4.4,
+          reviewers: 17,
+          shop_name: "Kedai Jus Buah",
+        },
+        {
+          name: "Es Teh Manis",
+          price: 6000,
+          stock: 40,
+          rating: 4.3,
+          reviewers: 14,
+          shop_name: "Minuman Hangat Murah",
+        },
+      ],
+    },
+    {
+      name: "Kopi",
+      data: [
+        {
+          name: "Kopi Hitam",
+          price: 8000,
+          stock: 30,
+          rating: 4.8,
+          reviewers: 28,
+          shop_name: "Kedai Kopi Mantap",
+        },
+        {
+          name: "Kopi Susu",
+          price: 10000,
+          stock: 25,
+          rating: 4.6,
+          reviewers: 20,
+          shop_name: "Warung Kopi Nikmat",
+        },
+        {
+          name: "Espresso",
+          price: 12000,
+          stock: 20,
+          rating: 4.7,
+          reviewers: 24,
+          shop_name: "Kafe Kopi Indah",
+        },
+      ],
+    },
+  ],
+};

@@ -1,6 +1,6 @@
-"use client"
+"use client";
 import SearchInputLesson from "@/components/lessonToday/SearhInputLesson";
-import { dataMapel } from "@/models/data/frontEnd/dataMapel";
+import { dataMapel } from "@/models/data/FE/dataMapel";
 import {
   CaretLeft,
   MapPin,
@@ -13,20 +13,29 @@ import { FunctionComponent } from "react";
 interface pageProps {}
 
 const page: FunctionComponent<pageProps> = () => {
-  const router = useRouter(
-  )
+  const router = useRouter();
   const handleRoute = () => {
-      router.back()
-  }
+    router.back();
+  };
   const handleCart = () => {
-    router.push("/canteen/cart")
-  }
+    router.push("/canteen/cart");
+  };
   return (
     <div className="min-h-svh bg-base-100 pt-6">
       <div className="flex justify-between px-6 items-center">
-        <CaretLeft onClick={handleRoute} size={24} weight="bold" className="cursor-pointer" />
+        <CaretLeft
+          onClick={handleRoute}
+          size={24}
+          weight="bold"
+          className="cursor-pointer"
+        />
         <p className="text-xl font-bold capitalize">All Quiz</p>
-        <ShoppingCart onClick={handleCart} size={24} weight="bold" className="cursor-pointer" />
+        <ShoppingCart
+          onClick={handleCart}
+          size={24}
+          weight="bold"
+          className="cursor-pointer"
+        />
       </div>
       <div className="mt-7">
         <SearchInputLesson />

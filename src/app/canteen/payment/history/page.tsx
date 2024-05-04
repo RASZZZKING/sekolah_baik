@@ -1,28 +1,15 @@
 "use client"
-import SearchInput from "@/components/dashboard/SearchInput";
 import SearchInputLesson from "@/components/lessonToday/SearhInputLesson";
-import { CaretLeft, ShoppingCart } from "@phosphor-icons/react/dist/ssr";
-import { useRouter } from "next/navigation";
+import HeaderShopCart from "@/components/utils/HeaderShopCart";
 import { FunctionComponent } from "react";
 
 interface pageProps {}
 
 const page: FunctionComponent<pageProps> = () => {
-  const router = useRouter(
-  )
-  const handleRoute = () => {
-      router.back()
-  }
-  const handleCart = () => {
-    router.push("/canteen/cart")
-  }
+  
   return (
     <div className="bg-base-100 pt-6 min-h-svh">
-      <div className="flex justify-between px-6 items-center">
-        <CaretLeft onClick={handleRoute} size={24} weight="bold" className="cursor-pointer" />
-        <p className="text-xl font-bold capitalize">Data Pembayaran</p>
-        <ShoppingCart onClick={handleCart} size={24} weight="bold" className="cursor-pointer" />
-      </div>
+      <HeaderShopCart title="History Payment" />
       <div className="mt-7">
         <SearchInputLesson />
       </div>

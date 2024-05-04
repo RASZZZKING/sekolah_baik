@@ -1,6 +1,6 @@
 import HeaderCanteen from "@/components/canteen/HeaderCanteen";
 import SectionMenuShop from "@/components/canteen/SectionMenuShop";
-import SectionLowCanteen from "@/components/canteen/sectionLower";
+import SectionLowCanteen from "@/components/canteen/SectionLowCanteen";
 import { FunctionComponent } from "react";
 
 interface pageProps {}
@@ -12,7 +12,6 @@ const page: FunctionComponent<pageProps> = () => {
         <HeaderCanteen />
         <SectionMenuShop />
       </div>
-      
       <SectionLowCanteen />
     </>
   );

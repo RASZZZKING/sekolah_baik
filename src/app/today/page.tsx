@@ -3,17 +3,15 @@ import MapelCard from "@/components/lessonToday/MapelCard";
 import SearchInputLesson from "@/components/lessonToday/SearhInputLesson";
 import HeadChevron from "@/components/utils/HeadChevron";
 import HelpSection from "@/components/utils/HelpSection";
-import { dataMapel } from "@/models/data/frontEnd/dataMapel";
-import { dataMateri } from "@/models/data/frontEnd/dataMateri";
+import { dataMapel } from "@/models/data/FE/dataMapel";
+import { dataMateri } from "@/models/data/FE/dataMateri";
 import { FunctionComponent } from "react";
-
-
 
 interface pageProps {}
 
 const page: FunctionComponent<pageProps> = () => {
   console.log(dataMapel);
-  
+
   return (
     <div className="bg-base-100 pt-8">
       <HeadChevron title="Lesson Today's" />

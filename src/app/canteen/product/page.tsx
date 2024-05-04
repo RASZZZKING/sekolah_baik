@@ -1,6 +1,7 @@
 "use client";
 import HeadChevron from "@/components/utils/HeadChevron";
-import { dataMapel } from "@/models/data/frontEnd/dataMapel";
+import HeaderCostum from "@/components/utils/moleculs/HeaderCostum";
+import { dataMapel } from "@/models/data/FE/dataMapel";
 import {
   CaretLeft,
   CaretRight,
@@ -57,26 +58,18 @@ const page: FunctionComponent<pageProps> = () => {
     handleClose();
     alert("Berhasil masuk ke keranjang");
   };
-  
 
   const condition = ["/", "s"];
   return (
     <div className="bg-base-100 pt-4 pb-24">
-      <div className="flex justify-between px-6 items-center">
-        <CaretLeft
-          onClick={handleRoute}
-          size={24}
-          weight="bold"
-          className="cursor-pointer"
-        />
-        <p className="text-xl font-bold capitalize">Batagor Detail</p>
+      <HeaderCostum title="Batagor Detail">
         <Star
           onClick={handleFav}
           size={24}
           weight="bold"
           className="cursor-pointer"
         />
-      </div>
+      </HeaderCostum>
       <div className="flex-col flex gap-6 mt-4">
         <div className="w-full aspect-square bg-slate-500 skeleton rounded-none"></div>
         <div className="flex justify-between gap-3 items-center px-6">
