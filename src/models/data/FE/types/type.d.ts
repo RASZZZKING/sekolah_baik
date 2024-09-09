@@ -64,3 +64,15 @@ interface Voucher {
   stock: number,
   expired: number | string
 }
+
+interface QuizExam {
+  id: number
+  imageUrl?: string
+  questions: string
+  answer_option: {
+    answer: string,
+    is_true_option: boolean
+  }[]
+  explanation_for_true_answers?: string
+}
+

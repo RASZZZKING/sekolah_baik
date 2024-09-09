@@ -1,6 +1,10 @@
 "use client";
+import CardShop from "@/components/canteen/card/CardShop";
+import CardProduct from "@/components/canteen/moleculs/CardProduct";
+import CardShopProduct from "@/components/canteen/moleculs/CardShopProduct";
 import HeadChevron from "@/components/utils/HeadChevron";
 import HeaderCostum from "@/components/utils/moleculs/HeaderCostum";
+import { dataCatCanteen } from "@/models/data/FE/dataCatCannten";
 import { dataMapel } from "@/models/data/FE/dataMapel";
 import {
   CaretLeft,
@@ -60,9 +64,34 @@ const Page: FunctionComponent<pageProps> = () => {
   };
 
   const condition = ["/", "s"];
+
+  const kucoba = dataCatCanteen.data.map((cb, i) => {
+    const Oreg = () => (
+      <>
+        {cb.data.map((db, ix) => {
+          const shopTrue = db.shop_name === "Warung Bu Anah";
+          if (shopTrue === ix < 4)
+            return (
+              <CardProduct
+                href={`canteen/product/${i}00${ix}`}
+                category={cb.name}
+                title={db.name}
+                shop={db.shop_name}
+                rating={db.rating}
+                reviewers={db.reviewers}
+                key={ix}
+              />
+            );
+        })}
+      </>
+    );
+    return <Oreg key={i} />;
+  })
+  
+
   return (
     <div className="bg-base-100 pt-4 pb-24">
-      <HeaderCostum title="Batagor Detail">
+      <HeaderCostum title="Shop Detail">
         <Star
           onClick={handleFav}
           size={24}
@@ -72,16 +101,19 @@ const Page: FunctionComponent<pageProps> = () => {
       </HeaderCostum>
       <div className="flex-col flex gap-6 mt-4">
         <div className="w-full aspect-square bg-slate-500 skeleton rounded-none"></div>
+
         <div className="flex justify-between gap-3 items-center px-6">
           <div className="flex flex-col gap-1.5">
-            <p className="text-xl font-semibold">Temple Of Heaven</p>
+            <p className="text-xl font-semibold">Kopi Santuy A7X</p>
             <div className="flex gap-0.5 items-center">
               <MapPin size={12} weight="fill" className="text-primary" />
               <p className="opacity-60">Ruang Kantin Pojok</p>
             </div>
           </div>
-          <p className="text-xl text-primary font-semibold">5K</p>
+          <p className="text-xl text-primary font-semibold">10 Products</p>
         </div>
+
+        {/* ulasan */}
         <div className="px-6">
           <div className="flex justify-between py-3 px-4 gap-3 rounded-xl bg-base-100 shadow-lg">
             <div className="flex gap-1.5 flex-col">
@@ -113,15 +145,20 @@ const Page: FunctionComponent<pageProps> = () => {
             </div>
           </div>
         </div>
+
+        {/* description  */}
         <div className="px-6 line-clamp-3 opacity-60 break-all">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis
           aliquid sit modi nihil maiores debitis similique quo natus provident
           at.
         </div>
+
+        {/* All Products */}
+
         <div className="px-6 flex justify-between items-center">
           <div className="text-md flex items-center">
-            <p>Comments</p>
-            <p className="opacity-60 text-sm">(14)</p>
+            <p>All Products</p>
+            <p className="opacity-60 text-sm"></p>
           </div>
           <div className="flex gap-1.5 text-xs text-primary">
             <p>See More</p>
@@ -129,6 +166,21 @@ const Page: FunctionComponent<pageProps> = () => {
           </div>
         </div>
 
+        <div className="px-6 grid grid-cols-2 gap-4">
+          {kucoba}
+        </div>
+
+        {/* comments  */}
+        <div className="px-6 flex justify-between items-center">
+          <div className="text-md flex items-center">
+            <p>All Comments</p>
+            <p className="opacity-60 text-sm">(14)</p>
+          </div>
+          <div className="flex gap-1.5 text-xs text-primary">
+            <p>See More</p>
+            <CaretRight size={12} weight="bold" />
+          </div>
+        </div>
         <div className="overflow-x-auto whitespace-nowrap flex gap-3">
           <div>
             <div className="ms-6 px-4  py-3 min-w-72 shadow-lg rounded-lg">
@@ -168,6 +220,7 @@ const Page: FunctionComponent<pageProps> = () => {
           </div>
         </div>
 
+        {/* Recomendations */}
         <div className="px-6 flex justify-between items-center">
           <div className="text-md flex items-center">
             <p>Recommendations</p>
@@ -330,6 +383,7 @@ const Page: FunctionComponent<pageProps> = () => {
           </div>
         </div>
 
+        {/* tombol beli  */}
         <div className="fixed bottom-0 bg-base-100 shadow-inner w-full max-w-full px-6 py-4 flex gap-4">
           <div onClick={handleCart} className="btn">
             <ShoppingCart size={22} />
@@ -347,4 +401,4 @@ const Page: FunctionComponent<pageProps> = () => {
   );
 };
 
-export default Page
+export default Page;

@@ -7,7 +7,7 @@ import { FunctionComponent } from "react";
 
 interface pageProps {}
 
-const page: FunctionComponent<pageProps> = () => {
+const Page: FunctionComponent<pageProps> = () => {
   const router = useRouter(
   )
   const handleRoute = () => {
@@ -110,4 +110,4 @@ const page: FunctionComponent<pageProps> = () => {
   );
 };
 
-export default page;
+export default Page;
