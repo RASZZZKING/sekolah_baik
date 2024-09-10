@@ -1,7 +1,7 @@
 import "react";
 
 declare module "react" {
-  interface CSSProperties {
+  export interface CSSProperties extends CSS.Properties<string | number> {
     "--value"?: string | number;
     "--size"?: string | number;
   }
