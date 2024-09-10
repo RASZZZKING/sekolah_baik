@@ -1,4 +1,8 @@
-export interface CSSPropertiesCustom  {
-    "--value"?: string | number
-    "--size"?: string | number
+import "react";
+
+declare module "react" {
+  interface CSSProperties {
+    "--value"?: string | number;
+    "--size"?: string | number;
+  }
 }
