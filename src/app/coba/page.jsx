@@ -1,15 +1,15 @@
 import React from 'react'
 
-const page = async() => {
-  const response = await fetch("http://localhost:8000/canteen/products")
-  const data = await response.json()
-  console.log("🚀 ~ page ~ data:", data)
+const Page = async() => {
+  // const response = await fetch("http://localhost:8000/canteen/products")
+  // const data = await response.json()
+  // console.log("🚀 ~ Page ~ data:", data)
   
 
   
   return (
-    <div>page</div>
+    <div>Page</div>
   )
 }
 
-export default page
+export default Page
